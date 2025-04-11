@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Disco Background Animation */
+.disco-background {
+  background: linear-gradient(45deg, #ff3366, #33ccff, #ffcc33, #33ff99, #cc33ff, #ff6633);
+  background-size: 400% 400%;
+  animation: disco-gradient 10s ease infinite;
+}
+
+@keyframes disco-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.disco-overlay {
+  background-image: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: disco-dots 5s linear infinite;
+}
+
+@keyframes disco-dots {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 30px 30px;
+  }
+}
+
+.disco-text {
+  text-shadow: 0 0 5px #ff3366, 0 0 10px #33ccff, 0 0 15px #ffcc33, 0 0 5px white;
+  animation: disco-text-color 5s linear infinite;
+}
+
+@keyframes disco-text-color {
+  0% {
+    text-shadow: 0 0 5px #ff3366, 0 0 10px #33ccff, 0 0 15px #ffcc33, 0 0 5px white;
+  }
+  33% {
+    text-shadow: 0 0 5px #33ccff, 0 0 10px #ffcc33, 0 0 15px #33ff99, 0 0 5px white;
+  }
+  66% {
+    text-shadow: 0 0 5px #ffcc33, 0 0 10px #33ff99, 0 0 15px #cc33ff, 0 0 5px white;
+  }
+  100% {
+    text-shadow: 0 0 5px #ff3366, 0 0 10px #33ccff, 0 0 15px #ffcc33, 0 0 5px white;
+  }
+}
+
+.disco-text-pulse {
+  animation: disco-text-pulse 2s ease-in-out infinite;
+}
+
+@keyframes disco-text-pulse {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 5px #ff3366, 0 0 10px #33ccff, 0 0 5px white;
+  }
+  50% {
+    opacity: 0.7;
+    text-shadow: 0 0 10px #ffcc33, 0 0 15px #33ff99, 0 0 5px white;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #ff3366, 0 0 10px #33ccff, 0 0 5px white;
+  }
+}
+
+.disco-text-glow {
+  text-shadow: 0 0 10px currentColor, 0 0 5px white;
+  animation: disco-text-glow 2s ease-in-out infinite;
+}
+
+@keyframes disco-text-glow {
+  0% {
+    text-shadow: 0 0 5px currentColor, 0 0 5px white;
+  }
+  50% {
+    text-shadow: 0 0 15px currentColor, 0 0 20px currentColor, 0 0 5px white;
+  }
+  100% {
+    text-shadow: 0 0 5px currentColor, 0 0 5px white;
+  }
+}
+
+/* Disco Ball */
+.disco-ball {
+  position: absolute;
+  top: -80px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, white, #c0c0c0);
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8), 0 0 40px 10px rgba(255, 51, 102, 0.5), 0 0 60px 15px
+    rgba(51, 204, 255, 0.5);
+  z-index: 30;
+  animation: disco-ball-spin 3s linear infinite, disco-ball-glow 2s ease-in-out infinite;
+}
+
+.disco-ball::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 10px;
+  background-color: white;
+}
+
+@keyframes disco-ball-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes disco-ball-glow {
+  0% {
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8), 0 0 40px 10px rgba(255, 51, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8), 0 0 40px 10px rgba(51, 204, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8), 0 0 40px 10px rgba(255, 51, 102, 0.5);
+  }
+}
